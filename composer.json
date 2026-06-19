@@ -3,10 +3,11 @@
     "name": "webkernel/standard-operations",
     "description": "The Webkernel Standard Operations functions and classes.",
     "version": "0.1.0",
-    "type": "library",
+    "type": "webkernel-stdlib",
     "license": "EPL-2.0",
     "require": {
         "php": ">=8.4",
+        "webkernel/standard-lifecycle": ">=0.1.0",
         "ext-openssl": "*"
     },
     "autoload": {
