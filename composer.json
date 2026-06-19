@@ -1,0 +1,30 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "webkernel/standard-operations",
+    "description": "The Webkernel Standard Operations functions and classes.",
+    "version": "0.1.0",
+    "type": "library",
+    "license": "EPL-2.0",
+    "require": {
+        "php": ">=8.4",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "files": [
+            "load.standard-operations.functions.php"
+        ],
+        "psr-4": {
+            "Webkernel\\StdOps\\CanonicalJson\\": "src/canonicalize_json",
+            "Webkernel\\StdOps\\": "src/"
+        }
+    },
+    "config": {},
+    "extra": {
+        "webkernel": {
+            "package_repo": "git@github.com:webkernelphp/standard-operations.git",
+            "prefix": "standard"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
