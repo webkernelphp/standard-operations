@@ -49,7 +49,7 @@ class Canonicalizator implements JsonCanonicalizationInterface
             $item = (array)$item;
         }
 
-        uksort($item, function (string $a, string $b) {
+        uksort($item, function (string $a, string $b): int {
             $a = mb_convert_encoding($a, 'UTF-16BE');
             $b = mb_convert_encoding($b, 'UTF-16BE');
             return strcmp($a, $b);

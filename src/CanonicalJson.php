@@ -16,7 +16,7 @@ use Webkernel\StdOps\CanonicalJson\Canonicalizator;
  *   sha256, sha384, sha512, sha3-224, sha3-256, sha3-384, sha3-512  → hash()
  *   blake2b512, md5                                                  → openssl_digest() / hash()
  */
-final class CanonicalJson
+final class CanonicalJson implements \Stringable
 {
     /**
      * Singleton Canonicalizator — instantiated once per process.
@@ -133,14 +133,14 @@ final class CanonicalJson
                     $data = $decoded;
                 }
             }
-            $this->canonical = self::getEngine()->canonicalize($data);
+            $this->canonical = $this->getEngine()->canonicalize($data);
         }
         return $this->canonical;
     }
 
-    private static function getEngine(): Canonicalizator
+    private function getEngine(): Canonicalizator
     {
-        if (self::$engine === null) {
+        if (!self::$engine instanceof \Webkernel\StdOps\CanonicalJson\Canonicalizator) {
             self::$engine = new Canonicalizator();
         }
         return self::$engine;
